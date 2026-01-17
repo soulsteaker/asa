@@ -28,6 +28,20 @@ Shows 6-month simulation with:
 - 50% save rate
 - 5% annual compound growth
 
+### Emergency Fund from Rounding (NEW!)
+
+```bash
+python3 emergency_fund.py
+```
+
+Automatically builds emergency fund from rounding your daily allowance:
+- Round $53.57 → $50/day = **$3.57/day to emergency**
+- 6 months: **$654** emergency fund
+- Annual: **$1,300** emergency savings
+- Compares different rounding strategies ($40, $45, $50, $53)
+
+Perfect for car repairs, medical bills, unexpected expenses!
+
 ### Compare Different Scenarios
 
 ```bash
@@ -105,6 +119,41 @@ Safe = Safe × (1 + daily_rate)
 
 At 5% annual: daily rate ≈ 0.0134%
 
+### 5. Emergency Fund from Rounding (Optional)
+
+Round your daily allowance to create automatic emergency savings:
+
+```
+daily_exact = $53.571428
+daily_actual = $50.00 (rounded)
+emergency_per_day = $53.571428 - $50.00 = $3.571428
+```
+
+**Example:** Round $53.57 → $50/day
+- Emergency per day: $3.57
+- Per paycheck (14 days): $50.00
+- Per year (26 paychecks): **$1,300.00**
+- After 6 months with 5% growth: **$654.36**
+
+This creates a **separate emergency fund** for:
+- Car repairs
+- Medical bills
+- Unexpected expenses
+- Anything that doesn't fit your regular spending
+
+The emergency fund also earns 5% compound growth!
+
+**Rounding Strategy Comparison:**
+
+| Round To | Emergency/Day | Annual Emergency |
+|----------|---------------|------------------|
+| $53 (dollar) | $0.57 | $208/year |
+| $50 (recommended) | $3.57 | $1,300/year |
+| $45 (aggressive) | $8.57 | $3,120/year |
+| $40 (very aggressive) | $13.57 | $4,940/year |
+
+Pick based on your spending needs. If you spend $30/day, $50 daily allowance works great!
+
 ## Key Insights
 
 ### 1. Spending Less = More Wealth
@@ -142,12 +191,17 @@ The 1/4 spendable rule creates automatic savings:
 
 ## Files
 
+**Main Tools:**
 - **run_jan_to_june.py** - Main simulation (Jan-June 2026)
+- **emergency_fund.py** - Emergency fund from daily rounding (NEW!)
 - **compare_scenarios.py** - Compare different save% and spending
 - **budget_simple.py** - Simple example with verification
-- **budget_tracker.py** - Original complex implementation (deprecated)
-- **simulator.py** - Original simulator (deprecated)
-- **verify_formulas.py** - Formula verification tests
+
+**Supporting:**
+- **budget_tracker.py** - Detailed tracker class with compound growth
+- **simulator.py** - Simulation framework
+- **reporter.py** - Reporting and CSV export tools
+- **verify_formulas.py** - Mathematical verification tests
 
 ## Parameters You Can Change
 
